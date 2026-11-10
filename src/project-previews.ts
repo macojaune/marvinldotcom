@@ -12,3 +12,11 @@ export const previewProjects = [
   "quilivreou",
   "sauve-ta-saint-valentin"
 ] as const
+
+// OG compositions also cover published client projects without an on-page preview.
+export const socialArtProjects = [
+  ...previewProjects,
+  "booke",
+  "clef-des-iles",
+  "creolissime"
+] as const
