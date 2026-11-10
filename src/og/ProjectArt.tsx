@@ -1,8 +1,8 @@
 import type { CSSProperties, ReactNode } from "react"
 import AutoSongLinkArt from "../components/AutoSongLinkArt"
-import type { previewProjects } from "../project-previews"
+import type { socialArtProjects } from "../project-previews"
 
-type Art = (typeof previewProjects)[number]
+type Art = (typeof socialArtProjects)[number]
 const row: CSSProperties = { display: "flex", alignItems: "center" }
 const column: CSSProperties = { display: "flex", flexDirection: "column" }
 const fill: CSSProperties = { width: "100%", height: "100%" }
@@ -139,6 +139,171 @@ function Map({ dark = false }: { dark?: boolean }) {
 // These are illustrative product previews, not screenshots or live statistics.
 export function ProjectArt({ project }: { project: Art }) {
   switch (project) {
+    case "booke":
+      return (
+        <Frame background='#e9edf7' color='#25345b'>
+          <div
+            style={{ ...row, justifyContent: "space-between", fontSize: 30 }}
+          >
+            <span>Booké</span>
+            <span style={{ fontSize: 12, letterSpacing: 2 }}>
+              PORTRAITS PHOTO
+            </span>
+          </div>
+          <div style={{ ...row, flex: 1, gap: 14, marginTop: 22 }}>
+            {["#e6bba4", "#acbecb", "#c2baaa"].map((color, i) => (
+              <div
+                key={color}
+                style={{
+                  ...column,
+                  flex: 1,
+                  height: 180,
+                  padding: 8,
+                  background: "#fff",
+                  borderRadius: 6,
+                  transform: `rotate(${(i - 1) * 5}deg)`
+                }}
+              >
+                <svg width='100%' height='140' viewBox='0 0 120 140'>
+                  <path d='M0 0h120v140H0Z' fill={color} />
+                  <circle cx='60' cy='48' r='23' fill='#f8eee5' />
+                  <path d='M18 140v-21a42 42 0 0 1 84 0v21Z' fill='#25345b' />
+                </svg>
+                <div
+                  style={{
+                    height: 5,
+                    width: "55%",
+                    background: "#d5dbe8",
+                    marginTop: 12
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+          <span style={{ fontSize: 15, marginTop: 15 }}>
+            La photo professionnelle, sur réservation.
+          </span>
+        </Frame>
+      )
+    case "clef-des-iles":
+      return (
+        <Frame background='#dfeee7' color='#164c43'>
+          <span style={{ fontSize: 28 }}>La clef des îles</span>
+          <div style={{ ...row, flex: 1, gap: 26, marginTop: 18 }}>
+            <svg width='160' height='180' viewBox='0 0 160 180' fill='none'>
+              <path
+                d='m12 78 68-54 68 54'
+                stroke='#164c43'
+                strokeWidth='9'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+              />
+              <path
+                d='M29 78v76h102V78'
+                stroke='#164c43'
+                strokeWidth='9'
+                strokeLinejoin='round'
+              />
+              <path d='M65 154v-49h30v49' fill='#78b6a0' />
+              <circle cx='122' cy='29' r='15' fill='#e4b963' />
+            </svg>
+            <div
+              style={{
+                ...column,
+                flex: 1,
+                background: "#fffdf7",
+                padding: 22,
+                borderRadius: 10,
+                gap: 16,
+                boxShadow: "0 7px 0 #bad5c7"
+              }}
+            >
+              <span style={{ fontSize: 15, letterSpacing: 2 }}>
+                FACTURATION
+              </span>
+              <Lines color='#78a999' />
+              <div style={{ height: 2, background: "#dfeee7" }} />
+              <Lines color='#164c43' />
+              <span style={{ fontSize: 12, color: "#587d6e" }}>
+                GESTION LOCATIVE
+              </span>
+            </div>
+          </div>
+        </Frame>
+      )
+    case "creolissime":
+      return (
+        <Frame background='#f3e8dc' color='#633f29'>
+          <div
+            style={{ ...row, justifyContent: "space-between", fontSize: 28 }}
+          >
+            <span>Créolissime</span>
+            <span style={{ fontSize: 12, letterSpacing: 2 }}>
+              BIJOUX CRÉOLES
+            </span>
+          </div>
+          <div style={{ ...row, flex: 1, marginTop: 22, gap: 16 }}>
+            <div
+              style={{
+                ...column,
+                flex: 1,
+                background: "#fffaf3",
+                borderRadius: 12,
+                padding: 16
+              }}
+            >
+              <svg width='100%' height='160' viewBox='0 0 210 160' fill='none'>
+                <ellipse
+                  cx='72'
+                  cy='86'
+                  rx='43'
+                  ry='55'
+                  stroke='#be9148'
+                  strokeWidth='10'
+                />
+                <ellipse
+                  cx='139'
+                  cy='86'
+                  rx='43'
+                  ry='55'
+                  stroke='#d8ae66'
+                  strokeWidth='10'
+                />
+                <path
+                  d='M66 26h12m55 0h12'
+                  stroke='#633f29'
+                  strokeWidth='7'
+                  strokeLinecap='round'
+                />
+              </svg>
+              <span style={{ fontSize: 15 }}>Les créoles</span>
+            </div>
+            <div style={{ ...column, width: 138, gap: 16 }}>
+              <div
+                style={{
+                  display: "flex",
+                  height: 98,
+                  background: "#e4cdb1",
+                  borderRadius: 10,
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
+              >
+                <svg width='88' height='80' viewBox='0 0 88 80' fill='none'>
+                  <path
+                    d='M14 10c0 56 60 56 60 0'
+                    stroke='#a97632'
+                    strokeWidth='5'
+                  />
+                  <circle cx='44' cy='61' r='10' fill='#be9148' />
+                </svg>
+              </div>
+              <span style={{ fontSize: 16 }}>Bijouterie en ligne</span>
+              <Lines color='#be9148' />
+            </div>
+          </div>
+        </Frame>
+      )
     case "meet-pause":
       return (
         <Frame background='#152a25' color='#f8f9f4'>

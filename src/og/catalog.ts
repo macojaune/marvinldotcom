@@ -2,7 +2,7 @@ import { getCollection } from "astro:content"
 import { createHash } from "node:crypto"
 import { home } from "../home"
 import { persona } from "../persona"
-import { previewProjects } from "../project-previews"
+import { socialArtProjects } from "../project-previews"
 import { pickSocialTheme, type SocialTheme } from "./theme"
 
 export type SocialCard = {
@@ -14,13 +14,13 @@ export type SocialCard = {
   label: string
   technos?: string[]
   date?: string
-  art?: (typeof previewProjects)[number]
-  featured?: { title: string; art: (typeof previewProjects)[number] }[]
+  art?: (typeof socialArtProjects)[number]
+  featured?: { title: string; art: (typeof socialArtProjects)[number] }[]
   articles?: string[]
 }
 
 // Bump when the layout, fonts or project illustrations change.
-const designVersion = "5"
+const designVersion = "6"
 const published = ({ data }: { data: { isDraft: boolean } }) =>
   import.meta.env.PROD ? !data.isDraft : true
 
@@ -33,7 +33,7 @@ async function createCatalog(): Promise<SocialCard[]> {
     .filter((entry) => !entry.data.isClient)
     .sort((a, b) => b.data.updatedAt.getTime() - a.data.updatedAt.getTime())
     .flatMap((entry) => {
-      const art = previewProjects.find((slug) => slug === entry.slug)
+      const art = socialArtProjects.find((slug) => slug === entry.slug)
       return art ? [{ title: entry.data.title, art }] : []
     })
     .slice(0, 3)
@@ -79,7 +79,7 @@ async function createCatalog(): Promise<SocialCard[]> {
           .filter(Boolean)
           .join(" · "),
         technos: entry.data.technos,
-        art: previewProjects.find((slug) => slug === entry.slug)
+        art: socialArtProjects.find((slug) => slug === entry.slug)
       })
     ),
     ...articles.map(
