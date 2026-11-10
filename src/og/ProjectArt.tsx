@@ -135,10 +135,108 @@ function Map({ dark = false }: { dark?: boolean }) {
   )
 }
 
-// Social-format adaptations of the eleven compositions in ProjectPreview.astro.
+// Social-format adaptations of the compositions in ProjectPreview.astro.
 // These are illustrative product previews, not screenshots or live statistics.
 export function ProjectArt({ project }: { project: Art }) {
   switch (project) {
+    case "meet-pause":
+      return (
+        <Frame background='#152a25' color='#f8f9f4'>
+          <div style={{ ...row, gap: 12, fontSize: 26 }}>
+            <div
+              style={{
+                ...row,
+                width: 38,
+                height: 38,
+                justifyContent: "center",
+                gap: 5,
+                borderRadius: 8,
+                background: "#f8f9f4"
+              }}
+            >
+              {[0, 1].map((i) => (
+                <div
+                  key={i}
+                  style={{
+                    width: 5,
+                    height: 20,
+                    borderRadius: 2,
+                    background: "#255c46"
+                  }}
+                />
+              ))}
+            </div>
+            <span>Meet Pause</span>
+            <svg
+              width='30'
+              height='10'
+              viewBox='0 0 30 10'
+              style={{ marginLeft: "auto" }}
+            >
+              <circle cx='4' cy='5' r='3' fill='#aee4ba' />
+              <circle cx='15' cy='5' r='3' fill='#aee4ba' />
+              <circle cx='26' cy='5' r='3' fill='#aee4ba' />
+            </svg>
+          </div>
+          <div
+            style={{
+              ...column,
+              marginTop: 30,
+              padding: 24,
+              gap: 12,
+              borderRadius: 14,
+              background: "#fbfaf4",
+              color: "#222b27",
+              boxShadow: "0 8px 0 #0e1c18"
+            }}
+          >
+            <span style={{ color: "#3a7357", fontSize: 12, letterSpacing: 2 }}>
+              ÇA FAIT UN MOMENT
+            </span>
+            <span style={{ fontSize: 25 }}>Une pause pour l’équipe ?</span>
+            <div style={{ ...row, gap: 10, marginTop: 6, fontSize: 14 }}>
+              <span
+                style={{
+                  padding: "12px 16px",
+                  borderRadius: 8,
+                  background: "#255c46",
+                  color: "#f8f9f4"
+                }}
+              >
+                Prendre une pause
+              </span>
+              <span
+                style={{
+                  padding: "12px 16px",
+                  borderRadius: 8,
+                  background: "#e5ece4",
+                  color: "#255c46"
+                }}
+              >
+                Dans 5 min
+              </span>
+            </div>
+          </div>
+          <div
+            style={{
+              ...row,
+              justifyContent: "space-between",
+              marginTop: "auto",
+              color: "#aee4ba",
+              fontSize: 10,
+              letterSpacing: 1
+            }}
+          >
+            <div style={{ ...row, gap: 6 }}>
+              <svg width='6' height='6' viewBox='0 0 6 6'>
+                <circle cx='3' cy='3' r='3' fill='#aee4ba' />
+              </svg>
+              <span>EN APPEL</span>
+            </div>
+            <span>UN RAPPEL, PAS UNE INTERRUPTION</span>
+          </div>
+        </Frame>
+      )
     case "kalot-municipales":
       return (
         <Frame background='#111211' color='#f6f6f2'>
